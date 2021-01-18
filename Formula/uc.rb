@@ -5,16 +5,16 @@
 class Uc < Formula
   desc "Utility to update jenkins plugin.txt"
   homepage ""
-  version "0.0.6"
+  version "0.0.7"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/garethjevans/uc/releases/download/0.0.6/uc-darwin-amd64.tar.gz"
-    sha256 "64d96606752758b7914cf8c045d64c440c5e57dd85ad5aba847aa3da81c2082e"
+    url "https://github.com/garethjevans/uc/releases/download/0.0.7/uc-darwin-amd64.tar.gz"
+    sha256 "174fe1d2d7c6861563d7600084464c3bf4bee60de3e79f451aee5ebea007b8dc"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/garethjevans/uc/releases/download/0.0.6/uc-linux-amd64.tar.gz"
-    sha256 "24f0f1c8ea501377c440415a684fb550d00045eedeae84bb7dc86a43e8942254"
+    url "https://github.com/garethjevans/uc/releases/download/0.0.7/uc-linux-amd64.tar.gz"
+    sha256 "107b7b2add3b6ead13a2a3ecd27733ad2ae8c5193dca4f698a7322d4eaf361a7"
   end
 
   def install
