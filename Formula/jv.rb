@@ -5,23 +5,27 @@
 class Jv < Formula
   desc "Determine a Jenkins Version"
   homepage ""
-  version "0.0.7"
+  version "0.0.8"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.7/jenkins-version-darwin-amd64.tar.gz"
-    sha256 "8e6487cb802306731d6ba8f6e5978a5fe5cc8a7141b22e48f211b29df62070f3"
+    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.8/jenkins-version-darwin-amd64.tar.gz"
+    sha256 "cc4cbbd88b75d5bec6987f5275ff8297ea2fd1a75ef52bee375cd181993e0296"
+  end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.8/jenkins-version-darwin-arm64.tar.gz"
+    sha256 "b6b8cbc3e0c66777d78a40e0de876aee94b3680dee9b8ce426747c23afcfc9c9"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.7/jenkins-version-linux-amd64.tar.gz"
-    sha256 "de1216c9ac1374fc6ec85f784376c0b1f85c1408de19f5c7341117d21be29d51"
+    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.8/jenkins-version-linux-amd64.tar.gz"
+    sha256 "ff6fdb1c63e50a76e84f03e71cfd935858b3fac81ad9b9d22f1ab30b093d25cd"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.7/jenkins-version-linux-arm64.tar.gz"
-    sha256 "88fc5ae40298baf22e6e636f873269b3de6340ce8569f10517a2fee52e8b5a9d"
+    url "https://github.com/garethjevans/jenkins-version/releases/download/0.0.8/jenkins-version-linux-arm64.tar.gz"
+    sha256 "e3b011cd66f51f34ea53b708c7de4ec152e3fcb59d58d79c3356b5ecf59d2977"
   end
 
   def install
-    bin.install "jv"
+    bin.install "jenkins-version"
   end
 end
