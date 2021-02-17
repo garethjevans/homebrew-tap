@@ -5,20 +5,24 @@
 class Inspect < Formula
   desc "Utility to inspect docker containers"
   homepage ""
-  version "0.0.9"
+  version "0.0.10"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.9/inspect-darwin-amd64.tar.gz"
-    sha256 "75d5a2972a0b66955bc0f1abc9cc48b765d83db0e21076cdf24af83537cc00ed"
+    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-darwin-amd64.tar.gz"
+    sha256 "715fda52864be5ca384f5ca5690111812cee5faea25bd1676b8b2e3675fc7175"
+  end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-darwin-arm64.tar.gz"
+    sha256 "7f71ac323a1f15a8677afd1f8a1016d6374e03a212aeadb92beee10a58b0ca13"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.9/inspect-linux-amd64.tar.gz"
-    sha256 "8504413026b29a99bb7ab0b3554ae8128baee92964c8e4d5ff3a8b76ed985980"
+    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-linux-amd64.tar.gz"
+    sha256 "015f0f6d69743a53b5ef5fbfc8f46d9737ebd234237e78761e7daff6b011cc2b"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.9/inspect-linux-arm64.tar.gz"
-    sha256 "54c4e1d8ade1517eef57b21a0849f188097a2905f943310e2e52cb6141f3b5c6"
+    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-linux-arm64.tar.gz"
+    sha256 "87df5f804862ef1cecfa0760414a32fee990c37778ffcc5222a44a254706af54"
   end
 
   def install
