@@ -5,20 +5,24 @@
 class Uc < Formula
   desc "Utility to update jenkins plugin.txt"
   homepage ""
-  version "0.0.12"
+  version "0.0.13"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/garethjevans/uc/releases/download/0.0.12/uc-darwin-amd64.tar.gz"
-    sha256 "1fe149097e7b103a0f21730f268132c5b2c42f9fac2e76e0ae145b8bed0dded1"
+    url "https://github.com/garethjevans/uc/releases/download/0.0.13/uc-darwin-amd64.tar.gz"
+    sha256 "c7cd4936c7093b651a8898af256f5892bd26d30bb7603745efacab7ee9fc3ae4"
+  end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/garethjevans/uc/releases/download/0.0.13/uc-darwin-arm64.tar.gz"
+    sha256 "4e014029c078ab86850c4079b75d9a46d420171c93cc2ce71c376b2a3976264e"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/garethjevans/uc/releases/download/0.0.12/uc-linux-amd64.tar.gz"
-    sha256 "a3e754585a0684ae67afa76100be904746cec862c38982ee03f7585e6bd41490"
+    url "https://github.com/garethjevans/uc/releases/download/0.0.13/uc-linux-amd64.tar.gz"
+    sha256 "8cc806c18fb9acde109514088ec19286efc4e170183ae3ce4013c9eda5c10ee8"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/garethjevans/uc/releases/download/0.0.12/uc-linux-arm64.tar.gz"
-    sha256 "b4ca372207068c4c63831dfac31f811d8dcf87bf4488718ed166b9c3653b74f3"
+    url "https://github.com/garethjevans/uc/releases/download/0.0.13/uc-linux-arm64.tar.gz"
+    sha256 "c9d3ebf88bd3f240a896377db816f764e51e2e2fb5e21ef45a012405277172a9"
   end
 
   def install
