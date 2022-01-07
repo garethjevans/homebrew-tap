@@ -5,27 +5,43 @@
 class Inspect < Formula
   desc "Utility to inspect docker containers"
   homepage ""
-  version "0.0.10"
-  bottle :unneeded
+  version "0.0.11"
 
-  if OS.mac?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-darwin-amd64.tar.gz"
-    sha256 "715fda52864be5ca384f5ca5690111812cee5faea25bd1676b8b2e3675fc7175"
-  end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-darwin-arm64.tar.gz"
-    sha256 "7f71ac323a1f15a8677afd1f8a1016d6374e03a212aeadb92beee10a58b0ca13"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-linux-amd64.tar.gz"
-    sha256 "015f0f6d69743a53b5ef5fbfc8f46d9737ebd234237e78761e7daff6b011cc2b"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/garethjevans/inspect/releases/download/0.0.10/inspect-linux-arm64.tar.gz"
-    sha256 "87df5f804862ef1cecfa0760414a32fee990c37778ffcc5222a44a254706af54"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/garethjevans/inspect/releases/download/0.0.11/inspect-darwin-amd64.tar.gz"
+      sha256 "93a7759f39637ee3ff397163b10bffaaac07adf6a0740b5aafdb3e86619c4fdd"
+
+      def install
+        bin.install "inspect"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/garethjevans/inspect/releases/download/0.0.11/inspect-darwin-arm64.tar.gz"
+      sha256 "e1a3ded8d87179e6c2abb7591b7eb67f8cd081b612b688bced0e0422a30dcb29"
+
+      def install
+        bin.install "inspect"
+      end
+    end
   end
 
-  def install
-    bin.install "inspect"
+  on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/garethjevans/inspect/releases/download/0.0.11/inspect-linux-arm64.tar.gz"
+      sha256 "933a50ff512e8895061ade67f54cd36aa4655e39d79d8c3721c51e958cc5db8d"
+
+      def install
+        bin.install "inspect"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/garethjevans/inspect/releases/download/0.0.11/inspect-linux-amd64.tar.gz"
+      sha256 "ce95769c1273446cfe33c85cc44beeb3e4a1466e19e361ffcc1905c9afdb9f4b"
+
+      def install
+        bin.install "inspect"
+      end
+    end
   end
 end
