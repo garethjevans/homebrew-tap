@@ -5,20 +5,20 @@
 class Scm < Formula
   desc "Utility to validate a component structure"
   homepage ""
-  version "0.3.0"
+  version "0.3.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/garethjevans/scm/releases/download/0.3.0/scm-darwin-amd64.tar.gz"
-      sha256 "abb74d0fbf193129fd7dc85362b50362a52f37126815ad598dc5fed9ca6f1773"
+      url "https://github.com/garethjevans/scm/releases/download/0.3.1/scm-darwin-amd64.tar.gz"
+      sha256 "d55cdcf0cc6ac412993574913aff9ce6e2e2011d4f7d593420ec20724a59b138"
 
       def install
         bin.install "scm"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/garethjevans/scm/releases/download/0.3.0/scm-darwin-arm64.tar.gz"
-      sha256 "7afd264ba6c8c2cf6c638e06cabf68c26ceea92abc3e4ed45b31a84a16978d16"
+      url "https://github.com/garethjevans/scm/releases/download/0.3.1/scm-darwin-arm64.tar.gz"
+      sha256 "7d469e9b092376bfc805ea8131a7b6bda5d140b3c0c4ab37a7f3ba8c2aa26a00"
 
       def install
         bin.install "scm"
@@ -27,17 +27,17 @@ class Scm < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/garethjevans/scm/releases/download/0.3.0/scm-linux-arm64.tar.gz"
-      sha256 "16512adcc0bb58a0ad9dbb7dc13736f9c3ef5ced27fdc53de2cd3103b6e9750c"
+    if Hardware::CPU.intel?
+      url "https://github.com/garethjevans/scm/releases/download/0.3.1/scm-linux-amd64.tar.gz"
+      sha256 "b13c0b08710f3974f11747fbd1fa6ac26a7bb06982abf5e3c82b7dd99f0884ea"
 
       def install
         bin.install "scm"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/garethjevans/scm/releases/download/0.3.0/scm-linux-amd64.tar.gz"
-      sha256 "440cc34699229a8b807b972c7de5f58500e0934656e6fd6ece0dbacdb53845e3"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/garethjevans/scm/releases/download/0.3.1/scm-linux-arm64.tar.gz"
+      sha256 "a7e21a1d401c3e5b136f9a3b06a14913bda3abb9ee8e146fc7e023d9bdaae6be"
 
       def install
         bin.install "scm"
